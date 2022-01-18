@@ -1,7 +1,7 @@
 const express = require('express');
 let router = express.Router();
 
-let brandController = require('../../controllers/brand')
+let brandController = require('../../controller/brand')
 
 router.get('/',brandController.fetchBrand)
 router.get('/categories',brandController.fetchCategories)
