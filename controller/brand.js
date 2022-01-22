@@ -1,10 +1,8 @@
-// trendyol'dan gelecek olan verilerin bulunduğu metotdları yükledik
+// Require packages
 const brandService = require('../services/brand')
 
-/* /brand yoluna istek atılırsa çalışacak olan metodu tanımladık bu metotda
-async anahtar kelimesi fonksiyon sonucunun bir Promise olduğu belirtirken await ise sonucu Promise olan fonksiyonun bitmesini bekler.
-res.send ile aldığımız veriyi görüntüledik
-*/
+//Fetch Brand
+
 exports.fetchBrand = async (req,res)=>{
     const response = await brandService.fetch()
     res.send({
@@ -13,10 +11,8 @@ exports.fetchBrand = async (req,res)=>{
     })
 }
 
-/* /brand/categories yoluna istek atılırsa çalışacak olan metodu tanımladık bu metotda
-async anahtar kelimesi fonksiyon sonucunun bir Promise olduğu belirtirken await ise sonucu Promise olan fonksiyonun bitmesini bekler.
-res.send ile aldığımız veriyi görüntüledik
-*/
+
+//Fetch Categories
 exports.fetchCategories = async(req,res) =>{
     const response = await brandService.fetchCategories()
     res.send({
@@ -25,12 +21,8 @@ exports.fetchCategories = async(req,res) =>{
     })
 }
 
-/* /brand/category/:id yoluna istek atılırsa çalışacak olan metodu tanımladık bu metotda
-async anahtar kelimesi fonksiyon sonucunun bir Promise olduğu belirtirken await ise sonucu Promise olan fonksiyonun bitmesini bekler.
-res.send ile aldığımız veriyi görüntüledik
-params metodu ile ; Yakalanan değerler, yolda belirtilen rota parameterlerinin ilgili isimlerini alarak req.params objesinde tutulur.
-bu tutulan değeri req.params.id kodu ile alarak servisteki değişkene parametre olarak gönderdik ve gelen cevabı ekrana yazdırdır
-*/
+
+// Single Fetch
 exports.singleFetchCategory = async(req,res)=>{
     try{
         const response = await brandService.singleFetchCategory(req.params.id)

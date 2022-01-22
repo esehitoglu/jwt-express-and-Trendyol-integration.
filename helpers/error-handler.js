@@ -1,9 +1,7 @@
+//create Error Handler
 module.exports = errorHandler;
 
-/* errorHandler fonksiyonu oluşturduk ve burada oluşabilecek hataları yakalayabilmek için
-gerekli koşul ifadelerini koyduk bunlardan UnauthorizedError isimli hata eğer token bilgisi bulunmayan
-bir kullanıcı erişim izni olmayan sayfalara erişmeye çalışıyorsa uyarı mesajı veriyoruz
-*/
+ 
 function errorHandler(err,req,res,next){
     if(typeof (err) === 'string'){
         // custom application error
